@@ -36,15 +36,11 @@ public class Movie {
         }
     }
 
-    // ✔️ Após o passo 4 — Agora apenas delega para Price
     public double getCharge(int daysRented) {
         return _price.getCharge(daysRented);
     }
 
-    // ✔️ Ainda não será movido no passo 4, isso é só depois
     public int getFrequentRenterPoints(int daysRented) {
-        if ((this.getPriceCode() == Movie.NEW_RELEASE) && daysRented > 1)
-            return 2;
-        return 1;
+        return _price.getFrequentRenterPoints(daysRented);
     }
 }
