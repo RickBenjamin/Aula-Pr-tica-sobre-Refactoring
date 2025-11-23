@@ -27,9 +27,6 @@ public class Customer {
         while (enum_rentals.hasMoreElements()) {
             Rental each = enum_rentals.nextElement();
 
-            // Agora chama o método movido e renomeado
-            double thisAmount = each.getCharge();
-
             // add frequent renter points
             frequentRenterPoints++;
 
@@ -39,10 +36,10 @@ public class Customer {
                 frequentRenterPoints++;
             }
 
-            // show figures
+            // show figures for this rental
             result += "\t" + each.getMovie().getTitle() + "\t" +
-                    thisAmount + "\n";
-            totalAmount += thisAmount;
+                    each.getCharge() + "\n";
+            totalAmount += each.getCharge();
         }
 
         // add footer lines
