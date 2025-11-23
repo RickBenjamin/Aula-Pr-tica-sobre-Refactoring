@@ -1,19 +1,20 @@
+
 public class TextStatement extends Statement {
 
-    @Override
-    protected String headerString(Customer customer) {
-        return "Rental Record for " + customer.getName() + "\n";
+    protected String header(Customer aCustomer) {
+        return "Rental Record for " + aCustomer.getName() + "\n";
     }
 
-    @Override
-    protected String eachRentalString(Rental rental) {
-        return "\t" + rental.getMovie().getTitle() + "\t" + rental.getCharge() + "\n";
+    protected String eachRental(Rental each) {
+        return "\t" + each.getMovie().getTitle() + "\t" +
+                String.valueOf(each.getCharge()) + "\n";
     }
 
-    @Override
-    protected String footerString(Customer customer) {
-        return "Amount owed is " + customer.getTotalCharge() + "\n"
-                + "You earned " + customer.getTotalFrequentRenterPoints()
-                + " frequent renter points";
+    protected String footer(Customer aCustomer) {
+        return "Amount owed is " +
+                String.valueOf(aCustomer.getTotalCharge()) + "\n" +
+                "You earned " +
+                String.valueOf(aCustomer.getTotalFrequentRenterPoints()) +
+                " frequent renter points";
     }
 }
