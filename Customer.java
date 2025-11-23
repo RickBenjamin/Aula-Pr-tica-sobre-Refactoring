@@ -57,4 +57,22 @@ public class Customer {
         }
         return result;
     }
+
+    public String htmlStatement() {
+        Enumeration<Rental> enum_rentals = rentals.elements();
+        String result = "<H1>Rentals for <EM>" + getName() + "</EM></H1><P>\n";
+
+        while (enum_rentals.hasMoreElements()) {
+            Rental each = enum_rentals.nextElement();
+            result += each.getMovie().getTitle() + ": " +
+                    each.getCharge() + "<BR>\n";
+        }
+
+        result += "<P>You owe <EM>" + getTotalCharge() + "</EM><P>\n";
+        result += "On this rental you earned <EM>" +
+                getTotalFrequentRenterPoints() +
+                "</EM> frequent renter points<P>";
+
+        return result;
+    }
 }
